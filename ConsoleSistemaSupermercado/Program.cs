@@ -32,7 +32,9 @@ namespace ConsoleSistemaSupermercado
                 Console.WriteLine("Selecione uma Opção para Continuar:");
                 Console.WriteLine("1 => Ver a lista de Produtos na Compra");
                 Console.WriteLine("2 => Adicionar um Produto Compra");
-                Console.WriteLine("3 => Sair do Sistema");
+                Console.WriteLine("3 => Editar Quantidade de Produto Compra");
+                Console.WriteLine("4 => Remover Produto Compra");
+                Console.WriteLine("5 => Sair do Sistema");
 
                 /**
                  * Fazendo a validação da entrada do menu.
@@ -42,7 +44,7 @@ namespace ConsoleSistemaSupermercado
                 {
                     digitacao_valida_opcao_menu = int.TryParse(Console.ReadLine(), out opcao_menu);
 
-                    if (opcao_menu < 1 || opcao_menu > 3 || digitacao_valida_opcao_menu == false)
+                    if (opcao_menu < 1 || opcao_menu > 5 || digitacao_valida_opcao_menu == false)
                     {
                         Console.BackgroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("Opção inválida, redigite uma opção:");
@@ -67,6 +69,14 @@ namespace ConsoleSistemaSupermercado
                         break;
 
                     case 3:
+                        dados_compra.editar();
+                        break;
+
+                    case 4:
+                        dados_compra.remover();
+                        break;
+
+                    case 5:
                         Console.WriteLine("Vai sair do sistema.");
                         break;
                 }
